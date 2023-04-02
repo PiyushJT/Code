@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,20 +34,20 @@ wifi= [] <br>
 no_of_Networks= data.count("Profile     :") <br>
  <br>
 for i in range(no_of_Networks): <br>
-    j= data.find("Profile     :")+14 <br>
-    data= data[j:len(data)] <br>
-    k = data.find("    All")-2 <br>
-    wifi_elmt= data[0:k] <br>
-    if wifi_elmt[-1] == "\r": <br>
-        wifi_elmt = wifi_elmt[0:-1] <br>
-    wifi.append(wifi_elmt) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;j= data.find("Profile     :")+14 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;data= data[j:len(data)] <br>
+&nbsp;&nbsp;&nbsp;&nbsp;k = data.find("    All")-2 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;wifi_elmt= data[0:k] <br>
+&nbsp;&nbsp;&nbsp;&nbsp;if wifi_elmt[-1] == "\r": <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wifi_elmt = wifi_elmt[0:-1] <br>
+&nbsp;&nbsp;&nbsp;&nbsp;wifi.append(wifi_elmt) <br>
  <br>
  <br>
  <br>
 # Function to get password and display it <br>
 def entry_update(Ntwrk): <br>
-    # Getting output from CMD <br>
-    dataprfle= subprocess.check_output(["netsh", "wlan", "show", "profiles", Ntwrk, "key=clear"]).decode("utf-8") <br>
+&nbsp;&nbsp;&nbsp;&nbsp;# Getting output from CMD <br>
+&nbsp;&nbsp;&nbsp;&nbsp;dataprfle= subprocess.check_output(["netsh", "wlan", "show", "profiles", Ntwrk, "key=clear"]).decode("utf-8") <br>
  <br>
     # Extracting password <br>
     st= dataprfle.find("Key Content            :")+25 <br>
@@ -63,11 +62,11 @@ def entry_update(Ntwrk): <br>
 # Getting the right button using tkinter buttons <br>
 button_dict= {} <br>
 for i in wifi: <br>
-    def func(x=i): <br>
-        return entry_update(x) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;def func(x=i): <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return entry_update(x) <br>
      <br>
-    button_dict[i]= ttk.Button(root, width=300, text=i, command=func) <br>
-    button_dict[i].pack() <br>
+&nbsp;&nbsp;&nbsp;&nbsp;button_dict[i]= ttk.Button(root, width=300, text=i, command=func) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;button_dict[i].pack() <br>
  <br>
  <br>
  <br>
