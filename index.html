@@ -31,12 +31,12 @@ label.pack() <br>
 # Getting wifi networks list from CMD <br>
 data= subprocess.check_output(["netsh", "wlan", "show", "profiles"]).decode("utf-8") <br>
 wifi= [] <br>
-no_of_Networks= data.count("Profile     :") <br>
+no_of_Networks= data.count("Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:") <br>
  <br>
 for i in range(no_of_Networks): <br>
-&nbsp;&nbsp;&nbsp;&nbsp;j= data.find("Profile     :")+14 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;j= data.find("Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:")+14 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;data= data[j:len(data)] <br>
-&nbsp;&nbsp;&nbsp;&nbsp;k = data.find("    All")-2 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;k = data.find("&nbsp;&nbsp;&nbsp;&nbsp;All")-2 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;wifi_elmt= data[0:k] <br>
 &nbsp;&nbsp;&nbsp;&nbsp;if wifi_elmt[-1] == "\r": <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wifi_elmt = wifi_elmt[0:-1] <br>
@@ -50,7 +50,7 @@ def entry_update(Ntwrk): <br>
 &nbsp;&nbsp;&nbsp;&nbsp;dataprfle= subprocess.check_output(["netsh", "wlan", "show", "profiles", Ntwrk, "key=clear"]).decode("utf-8") <br>
  <br>
 &nbsp;&nbsp;&nbsp;&nbsp;# Extracting password <br>
-&nbsp;&nbsp;&nbsp;&nbsp;st= dataprfle.find("Key Content            :")+25 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;st= dataprfle.find("Key Content&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:")+25 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;end= dataprfle.find("Cost settings")-4 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;password= dataprfle[st:end] <br>
  <br>
