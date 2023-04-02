@@ -49,13 +49,13 @@ def entry_update(Ntwrk): <br>
 &nbsp;&nbsp;&nbsp;&nbsp;# Getting output from CMD <br>
 &nbsp;&nbsp;&nbsp;&nbsp;dataprfle= subprocess.check_output(["netsh", "wlan", "show", "profiles", Ntwrk, "key=clear"]).decode("utf-8") <br>
  <br>
-    # Extracting password <br>
-    st= dataprfle.find("Key Content            :")+25 <br>
-    end= dataprfle.find("Cost settings")-4 <br>
-    password= dataprfle[st:end] <br>
+&nbsp;&nbsp;&nbsp;&nbsp;# Extracting password <br>
+&nbsp;&nbsp;&nbsp;&nbsp;st= dataprfle.find("Key Content            :")+25 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;end= dataprfle.find("Cost settings")-4 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;password= dataprfle[st:end] <br>
  <br>
-    # Displaying password <br>
-    hi.config(text= f'\n\n\n{password}\n\n') <br>
+&nbsp;&nbsp;&nbsp;&nbsp;# Displaying password <br>
+&nbsp;&nbsp;&nbsp;&nbsp;hi.config(text= f'\n\n\n{password}\n\n') <br>
  <br>
  <br>
  <br>
